@@ -41,9 +41,9 @@ nav {
   text-decoration: none;
 }
 
-.loadingMessage{
-  font-size:2em;
-  text-align:center;
+.loadingMessage {
+  font-size: 2em;
+  text-align: center;
 }
 
 #reviews {
@@ -54,30 +54,49 @@ nav {
   text-align: center;
 }
 
-
-#reviewsTitle{
+#reviewsTitle {
   font-size: 2.2em;
 }
-.individualReviewTitle{
+.individualReviewTitle {
   font-size: 1.5em;
 }
 
-#reviewsList{
- display:flex;
- flex-direction: column;
- flex-wrap:wrap;
- align-content: center;
+#reviewsList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
-.reviewsListItem{
+.reviewsListItem {
   background-color: rgb(97, 97, 97);
   border: solid 5px rgb(42, 126, 119);
   border-radius: 5%;
   padding: 10px;
-  list-style:none;
-  width:40%;
- margin-bottom: 20px;
+  list-style: none;
+  width: 40%;
+  margin-bottom: 20px;
 }
 
-.reviewsListItem:hover{
+.reviewsListItem:hover {
   background-color: rgb(56, 155, 147);
+  cursor: pointer;
+}
+
+#individualReview {
+  margin-top: 20px;
+  text-align: center;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+#reviewInfo{
+  text-transform:capitalize;
+}
+#reviewIMG{
+  width:40%;
+
+}
+#reviewBody{
+  width: 60%;
 }
