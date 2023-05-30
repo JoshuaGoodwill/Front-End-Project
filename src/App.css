@@ -1,42 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+#Header {
+  background-color: rgb(26, 102, 96);
+  width: 100vw;
+  height: 5em;
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+h1 {
+  font-size: 3em;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgb(42, 126, 119);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100vw;
+}
+
+.NavbarLink {
+  font-size: 1.3em;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border: solid 2px;
+  background-color: lightblue;
+  text-decoration: none;
+}
+
+#reviews {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#reviewsTitle{
+  font-size: 2.2em;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.individualReviewTitle{
+  font-size: 1.5em;
 }
