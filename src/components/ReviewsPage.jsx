@@ -1,29 +1,34 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { fetchReviews } from "../utils";
 import ReviewsList from "./ReviewsList";
 
 const ReviewsPage = () => {
-const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
-    fetchReviews().then(({reviews}) => {
+  useEffect(() => {
+    fetchReviews()
+      .then(({ reviews }) => {
         return reviews;
-    }).then((reviews) => {
+      })
+      .then((reviews) => {
         setReviews(reviews);
-    })
-})
+      })
+      .then(() => {
+        setIsLoading(false);
+      });
+  });
 
-
-
-return (
-    <section id="reviews">
+  if (isLoading) {
+    return <p className="loadingMessage">Loading reviews...</p>;
+  } else {
+    return (
+      <section id="reviews">
         <h2 id="reviewsTitle">Reviews</h2>
-        <ReviewsList reviews={reviews}/>
-    </section>
-)
-
-
+        <ReviewsList reviews={reviews} />
+      </section>
+    );
+  }
 };
-
 
 export default ReviewsPage;

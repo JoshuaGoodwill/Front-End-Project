@@ -41,6 +41,11 @@ nav {
   text-decoration: none;
 }
 
+.loadingMessage{
+  font-size:2em;
+  text-align:center;
+}
+
 #reviews {
   width: 100vw;
   display: flex;
