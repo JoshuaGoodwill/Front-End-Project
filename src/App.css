@@ -54,9 +54,30 @@ nav {
   text-align: center;
 }
 
+
 #reviewsTitle{
   font-size: 2.2em;
 }
 .individualReviewTitle{
   font-size: 1.5em;
+}
+
+#reviewsList{
+ display:flex;
+ flex-direction: column;
+ flex-wrap:wrap;
+ align-content: center;
+}
+.reviewsListItem{
+  background-color: rgb(97, 97, 97);
+  border: solid 5px rgb(42, 126, 119);
+  border-radius: 5%;
+  padding: 10px;
+  list-style:none;
+  width:40%;
+ margin-bottom: 20px;
+}
+
+.reviewsListItem:hover{
+  background-color: rgb(56, 155, 147);
 }
