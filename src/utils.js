@@ -15,4 +15,15 @@ const fetchReviews = () => {
     });
 };
 
-export {fetchReviews}
+const fetchIndividualReview = (id) => {
+  return games
+    .get(`/reviews/${id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { fetchReviews, fetchIndividualReview };

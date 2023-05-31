@@ -17,7 +17,7 @@ const ReviewsPage = () => {
       .then(() => {
         setIsLoading(false);
       });
-  });
+  }, []);
 
   if (isLoading) {
     return <p className="loadingMessage">Loading reviews...</p>;
