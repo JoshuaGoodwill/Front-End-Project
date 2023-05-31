@@ -77,26 +77,26 @@ nav {
   margin-bottom: 20px;
 }
 
-.reviewsListItem:hover {
-  background-color: rgb(56, 155, 147);
-  cursor: pointer;
+.reviewLink {
+  border: solid 2px;
+  padding: 5px;
+  background-color: lightblue;
 }
 
 #individualReview {
   margin-top: 20px;
   text-align: center;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-#reviewInfo{
-  text-transform:capitalize;
+#reviewInfo {
+  text-transform: capitalize;
 }
-#reviewIMG{
-  width:40%;
-
+#reviewIMG {
+  max-height: 500px;
 }
-#reviewBody{
+#reviewBody {
   width: 60%;
 }
