@@ -26,4 +26,15 @@ const fetchIndividualReview = (id) => {
     });
 };
 
-export { fetchReviews, fetchIndividualReview };
+const fetchComments = (id) => {
+  return games
+    .get(`/reviews/${id}/comments`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { fetchReviews, fetchIndividualReview, fetchComments };

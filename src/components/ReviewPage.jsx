@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchIndividualReview } from "../utils";
+import CommentsList from "./CommentsList";
 
 const IndividualReviewPage = () => {
   const [review, setReview] = useState({});
@@ -35,6 +36,7 @@ const IndividualReviewPage = () => {
         </div>
         <img id="reviewIMG" src={review.review_img_url} />
         <p id="reviewBody">{review.review_body}</p>
+        <CommentsList id={review.review_id}/>
       </section>
     );
   }
