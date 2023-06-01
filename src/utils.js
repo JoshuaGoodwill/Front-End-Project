@@ -39,12 +39,9 @@ const fetchComments = (id) => {
 
 const patchVote = (id, amount) => {
   return games
-    .patch(`/reviews/${id}`, {inc_votes: amount})
+    .patch(`/reviews/${id}`, { inc_votes: amount })
     .then((response) => {
       return response.data;
-    })
-    .catch((err) => {
-      console.log(err);
     });
 };
 
