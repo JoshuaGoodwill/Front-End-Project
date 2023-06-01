@@ -100,3 +100,23 @@ nav {
 #reviewBody {
   width: 60%;
 }
+
+#comments{
+  margin-top: 20px;
+  padding-bottom: 20px;
+  width:100%;
+}
+#commentsTitle{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#commentsList{
+  list-style:none;
+}
+.commentsListItem{
+  margin-bottom: 10px;
+  border:solid 2px rgb(26, 102, 96);
+  background-color: rgb(42, 126, 119);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
