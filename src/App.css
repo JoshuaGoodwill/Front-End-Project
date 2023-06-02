@@ -17,6 +17,7 @@
   padding-top: 2em;
   padding-bottom: 2em;
 }
+
 h1 {
   font-size: 3em;
 }
@@ -36,11 +37,27 @@ nav {
   margin-left: 10px;
   margin-right: 10px;
   padding: 10px;
-  border: solid 2px;
+  border: solid 2px darkblue;
+  color: darkblue;
   background-color: lightblue;
   text-decoration: none;
+  font-weight: bold;
+}
+button {
+  font-weight:bolder;
+  font-size: 1em;
 }
 
+#submitButton {
+  border-color: darkblue;
+  color: darkblue;
+  padding: 3px;
+  background-color: lightblue;
+}
+
+input {
+  background-color: aliceblue;
+}
 .loadingMessage {
   font-size: 2em;
   text-align: center;
@@ -113,10 +130,51 @@ nav {
 #commentsList {
   list-style: none;
 }
+#commentBody {
+  width: 40%;
+  height: 100px;
+  margin-bottom: 5px;
+}
+.commentTitle{
+  color: rgba(255, 255, 255, 0.87);
+}
+.commentText {
+  max-width: 80%;
+  margin-left: 10%;
+  word-wrap: break-word;
+  color: rgba(255, 255, 255, 0.87);
+}
+.feedback-1 {
+  padding: 0;
+  margin: 0;
+}
+
+.feedback0 {
+  color: rgb(255, 255, 255);
+  background-color: rgb(119, 0, 0);
+  padding: 5px;
+  border-radius: 0.5em;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.feedback1 {
+  color: rgb(255, 255, 255);
+  background-color: rgb(9, 179, 60);
+  padding: 5px;
+  border-radius: 0.5em;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .commentsListItem {
   margin-bottom: 10px;
   border: solid 2px rgb(26, 102, 96);
   background-color: rgb(42, 126, 119);
+  color: darkblue;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -126,8 +184,9 @@ nav {
   padding-bottom: 3px;
   padding-left: 5px;
   padding-right: 5px;
-  border: solid 2px rgb(79, 58, 156);
+  border: solid 2px darkblue;
   background-color: lightblue;
+  color: darkblue;
   margin-right: 5px;
 }
 .upvoteButton0 {
@@ -135,8 +194,9 @@ nav {
   padding-bottom: 3px;
   padding-left: 5px;
   padding-right: 5px;
-  border: solid 2px rgb(79, 58, 156);
+  border: solid 2px darkblue;
   background-color: lightblue;
+  color: darkblue;
   margin-right: 5px;
 }
 .upvoteButton1 {
@@ -146,6 +206,7 @@ nav {
   padding-right: 5px;
   border: solid 2px green;
   background-color: palegreen;
+  color: black;
   margin-right: 5px;
 }
 
@@ -156,6 +217,7 @@ nav {
   padding-right: 5px;
   border: solid 2px darkred;
   background-color: rgb(255, 31, 76);
+  color: black;
   margin-left: 5px;
 }
 .downvoteButton0 {
@@ -163,8 +225,9 @@ nav {
   padding-bottom: 3px;
   padding-left: 5px;
   padding-right: 5px;
-  border: solid 2px rgb(79, 58, 156);
+  border: solid 2px darkblue;
   background-color: lightblue;
+  color: darkblue;
   margin-left: 5px;
 }
 .downvoteButton1 {
@@ -174,5 +237,6 @@ nav {
   padding-right: 5px;
   order: solid 2px rgb(79, 58, 156);
   background-color: lightblue;
+  color: darkblue;
   margin-left: 5px;
 }

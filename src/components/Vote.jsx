@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { patchVote } from "../utils";
+import { patchVote } from "../api";
 
 const Vote = ({ id, votes }) => {
   const initialRenderTracker = useRef(true);

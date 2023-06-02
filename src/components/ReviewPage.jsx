@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchIndividualReview } from "../utils";
+import { fetchIndividualReview } from "../api";
 import CommentsList from "./CommentsList";
 import Vote from "./Vote";
 
