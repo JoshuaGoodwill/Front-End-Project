@@ -30,7 +30,7 @@ const IndividualReviewPage = () => {
     return (
       <section id="individualReview">
         <h2 id="reviewTitle">{review.title}</h2>
-        <Vote review={review} />
+        <Vote id={review.review_id} votes={review.votes} />
         <div id="reviewInfo">
           <p>Author: {review.owner}</p>
           <p>Posted: {fullDate.getFullYear()}</p>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { patchVote } from "../utils";
 
-const Vote = ({ review }) => {
+const Vote = ({ id, votes }) => {
   const initialRenderTracker = useRef(true);
   const [voteValue, setVoteValue] = useState({
     vote: 0,
@@ -41,14 +41,14 @@ const Vote = ({ review }) => {
     if (initialRenderTracker.current) {
       initialRenderTracker.current = false;
     } else {
-      patchVote(review.review_id, voteValue.amount)
+      patchVote(id, voteValue.amount)
         .then(() => {
           setErrorMessage("");
         })
         .catch((err) => {
           console.log(err);
           setErrorMessage(
-            "Problem with voting system. Please refresh the page to try vote again."
+            "Problem with voting system. Please refresh the page."
           );
         });
     }
@@ -57,7 +57,7 @@ const Vote = ({ review }) => {
   if (errorMessage !== "") {
     return (
       <div id="votingError">
-        <p>Votes: {review.votes}</p>
+        <p>Votes: {votes}</p>
         <p>{errorMessage}</p>
       </div>
     );
@@ -79,9 +79,8 @@ const Vote = ({ review }) => {
 
     return (
       <div id="voting">
-        <p>Votes: {review.votes + voteValue.vote}</p>
+        <p>Votes: {votes + voteValue.vote}</p>
         <div id="buttonContainer">
-          <p>{errorMessage}</p>
           <button onClick={upvote} className={`upvoteButton${voteValue.vote}`}>
             {upvoteText}
           </button>
