@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <section id="Header">
-      <h1 >Header</h1>
+      <h1 >GGames</h1>
     </section>
   );
 };

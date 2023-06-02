@@ -37,6 +37,34 @@ const fetchComments = (id) => {
     });
 };
 
+const fetchCategories = () => {
+  return games.get("/categories").then((response) => {
+    return response.data;
+  });
+};
+
+const fetchUsers = () => {
+  return games
+    .get("/users")
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const postComment = (id, username, commentBody) => {
+  return games
+    .post(`/reviews/${id}/comments`, {
+      username: username,
+      body: commentBody,
+    })
+    .then((response) => {
+      return response.data;
+    })
+};
+
 const patchVote = (id, amount) => {
   return games
     .patch(`/reviews/${id}`, { inc_votes: amount })
@@ -45,16 +73,5 @@ const patchVote = (id, amount) => {
     });
 };
 
-const fetchCategories = () => {
-  return games.get("/categories").then((response) => {
-    return response.data;
-  });
-};
+export { fetchReviews, fetchIndividualReview, fetchComments, postComment, patchVote, fetchUsers, fetchCategories };
 
-export {
-  fetchReviews,
-  fetchIndividualReview,
-  fetchComments,
-  patchVote,
-  fetchCategories,
-};

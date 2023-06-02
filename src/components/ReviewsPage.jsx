@@ -10,10 +10,7 @@ const ReviewsPage = ({ categoriesArr }) => {
 
   useEffect(() => {
     fetchReviews()
-      .then(({ reviews }) => {
-        return reviews;
-      })
-      .then((reviews) => {
+      .then(({reviews}) => {
         setReviews(reviews);
       })
       .then(() => {
