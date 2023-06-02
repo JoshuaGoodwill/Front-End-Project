@@ -68,4 +68,4 @@ const patchVote = (id, amount) => {
     });
 };
 
-export { fetchReviews, fetchIndividualReview, fetchComments, postComment, patchVote };
+export { fetchReviews, fetchIndividualReview, fetchComments, postComment, patchVote, fetchUsers };
