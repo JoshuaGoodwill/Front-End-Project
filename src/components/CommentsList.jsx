@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchComments } from "../utils";
+import { fetchComments } from "../api";
 import NewComment from "./NewComment";
 
 const CommentsList = ({ id }) => {
@@ -29,16 +29,26 @@ const CommentsList = ({ id }) => {
         <ul id="commentsList">
           {commentsArr.map((comment) => {
             const fullDate = new Date(comment.created_at);
-
-            return (
-              <li className="commentsListItem" key={comment.comment_id}>
-                <h4>
-                  {comment.author} commented on {fullDate.getDate()}/
-                  {fullDate.getMonth()}/{fullDate.getFullYear()}:
-                </h4>
-                <p>{comment.body}</p>
-              </li>
-            );
+            if (comment.author === "ERROR") {
+              return (
+                <li className="commentsListItem" key={comment.comment_id}>
+                  <h4>
+                    {comment.author}
+                  </h4>
+                  <p>{comment.body}</p>
+                </li>
+              );
+            } else {
+              return (
+                <li className="commentsListItem" key={comment.comment_id}>
+                  <h4>
+                    {comment.author} commented on {fullDate.getDate()}/
+                    {fullDate.getMonth()}/{fullDate.getFullYear()}:
+                  </h4>
+                  <p>{comment.body}</p>
+                </li>
+              );
+            }
           })}
         </ul>
       </div>

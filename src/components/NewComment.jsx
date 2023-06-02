@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchUsers, postComment } from "../utils";
+import { fetchUsers, postComment } from "../api";
 
 const NewComment = ({ id, setCommentsArr }) => {
   const [formValues, setFormValues] = useState({
@@ -12,6 +12,7 @@ const NewComment = ({ id, setCommentsArr }) => {
     posted: 0,
     message: "",
   });
+  const [formDisabler, setFormDisabler] = useState(false);
 
   useEffect(() => {
     fetchUsers()
@@ -45,21 +46,20 @@ const NewComment = ({ id, setCommentsArr }) => {
 
   const submitForm = (event) => {
     event.preventDefault();
+    setFormDisabler(true);
 
     if (formValues.username !== "" && /^.{3,}$/i.test(formValues.commentBody)) {
       postComment(id, formValues.username, formValues.commentBody)
         .then(({ comment }) => {
-          return comment;
-        })
-        .then((comment) => {
           setCommentsArr((currComments) => {
             return [comment, ...currComments];
           });
           setFormValues((currValues) => {
-            return { currValues, commentBody: "" };
+            return { ...currValues, commentBody: "" };
           });
         })
         .then(() => {
+          setFormDisabler(false);
           setFeedbackMessage({
             posted: 1,
             message: "Successfully posted comment.",
@@ -70,13 +70,14 @@ const NewComment = ({ id, setCommentsArr }) => {
           setCommentsArr((currComments) => {
             return [
               {
-                username: "",
-                body: "ERROR: FAILED TO POST NEW COMMENT. PLEASE REFRESH AND TRY AGAIN.",
+                author: "ERROR",
+                body: "FAILED TO POST NEW COMMENT. PLEASE REFRESH AND TRY AGAIN.",
               },
               ...currComments,
             ];
           });
           setFeedbackMessage({ posted: 0, message: "Error posting comment." });
+          setFormDisabler(false);
         });
     }
   };
@@ -101,7 +102,9 @@ const NewComment = ({ id, setCommentsArr }) => {
         value={formValues.commentBody}
         onChange={handleChange}
       ></input>
-      <button id="submitButton">Submit Comment</button>
+      <button id="submitButton" disabled={formDisabler}>
+        Submit Comment
+      </button>
       <p className={`feedback${feedbackMessage.posted}`}>
         {feedbackMessage.message}
       </p>

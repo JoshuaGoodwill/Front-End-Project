@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchReviews } from "../utils";
+import { fetchReviews } from "../api";
 import ReviewsList from "./ReviewsList";
 
 const ReviewsPage = () => {
@@ -8,10 +8,7 @@ const ReviewsPage = () => {
 
   useEffect(() => {
     fetchReviews()
-      .then(({ reviews }) => {
-        return reviews;
-      })
-      .then((reviews) => {
+      .then(({reviews}) => {
         setReviews(reviews);
       })
       .then(() => {

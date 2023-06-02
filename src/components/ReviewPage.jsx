@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchIndividualReview } from "../utils";
+import { fetchIndividualReview } from "../api";
 import CommentsList from "./CommentsList";
 
 const IndividualReviewPage = () => {
@@ -29,14 +29,14 @@ const IndividualReviewPage = () => {
       <section id="individualReview">
         <h2 id="reviewTitle">{review.title}</h2>
         <div id="reviewInfo">
-        <p>Author: {review.owner}</p>
-        <p>Posted: {fullDate.getFullYear()}</p>
-        <p>Designed By: {review.designer}</p>
-        <p>Genre: {review.category}</p>
+          <p>Author: {review.owner}</p>
+          <p>Posted: {fullDate.getFullYear()}</p>
+          <p>Designed By: {review.designer}</p>
+          <p>Genre: {review.category}</p>
         </div>
         <img id="reviewIMG" src={review.review_img_url} />
         <p id="reviewBody">{review.review_body}</p>
-        <CommentsList id={review.review_id}/>
+        <CommentsList id={review.review_id} />
       </section>
     );
   }
