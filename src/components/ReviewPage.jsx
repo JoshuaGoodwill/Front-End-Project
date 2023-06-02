@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchIndividualReview } from "../api";
 import CommentsList from "./CommentsList";
+import Vote from "./Vote";
 
 const IndividualReviewPage = () => {
   const [review, setReview] = useState({});
@@ -22,12 +23,14 @@ const IndividualReviewPage = () => {
         setIsLoading(false);
       });
   }, []);
+
   if (isLoading) {
     return <p className="loadingMessage">Loading Review...</p>;
   } else {
     return (
       <section id="individualReview">
         <h2 id="reviewTitle">{review.title}</h2>
+        <Vote id={review.review_id} votes={review.votes} />
         <div id="reviewInfo">
           <p>Author: {review.owner}</p>
           <p>Posted: {fullDate.getFullYear()}</p>
