@@ -37,6 +37,7 @@ const fetchComments = (id) => {
     });
 };
 
+
 const fetchUsers = () => {
   return games
     .get("/users")
@@ -59,4 +60,12 @@ const postComment = (id, username, commentBody) => {
     })
 };
 
-export { fetchReviews, fetchIndividualReview, fetchComments, fetchUsers, postComment };
+const patchVote = (id, amount) => {
+  return games
+    .patch(`/reviews/${id}`, { inc_votes: amount })
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export { fetchReviews, fetchIndividualReview, fetchComments, postComment, patchVote };
