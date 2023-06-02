@@ -37,4 +37,26 @@ const fetchComments = (id) => {
     });
 };
 
-export { fetchReviews, fetchIndividualReview, fetchComments };
+const fetchUsers = () => {
+  return games
+    .get("/users")
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const postComment = (id, username, commentBody) => {
+  return games
+    .post(`/reviews/${id}/comments`, {
+      username: username,
+      body: commentBody,
+    })
+    .then((response) => {
+      return response.data;
+    })
+};
+
+export { fetchReviews, fetchIndividualReview, fetchComments, fetchUsers, postComment };

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchComments } from "../utils";
+import NewComment from "./NewComment";
 
 const CommentsList = ({ id }) => {
   const [commentsArr, setCommentsArr] = useState([]);
@@ -24,6 +25,7 @@ const CommentsList = ({ id }) => {
     return (
       <div id="comments">
         <h2 id="commentsTitle">Comments</h2>
+        <NewComment id={id} setCommentsArr={setCommentsArr}></NewComment>
         <ul id="commentsList">
           {commentsArr.map((comment) => {
             const fullDate = new Date(comment.created_at);

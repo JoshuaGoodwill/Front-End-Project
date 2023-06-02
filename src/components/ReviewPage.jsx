@@ -21,7 +21,7 @@ const IndividualReviewPage = () => {
       .then(() => {
         setIsLoading(false);
       });
-  });
+  }, []);
   if (isLoading) {
     return <p className="loadingMessage">Loading Review...</p>;
   } else {

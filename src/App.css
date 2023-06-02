@@ -17,6 +17,7 @@
   padding-top: 2em;
   padding-bottom: 2em;
 }
+
 h1 {
   font-size: 3em;
 }
@@ -36,11 +37,22 @@ nav {
   margin-left: 10px;
   margin-right: 10px;
   padding: 10px;
-  border: solid 2px;
+  border: solid 2px darkblue;
+  color: darkblue;
   background-color: lightblue;
   text-decoration: none;
 }
 
+#submitButton{
+  border-color: darkblue;
+  color: darkblue;
+  padding: 3px;
+  background-color: lightblue;
+}
+
+input{
+  background-color:aliceblue;
+}
 .loadingMessage {
   font-size: 2em;
   text-align: center;
