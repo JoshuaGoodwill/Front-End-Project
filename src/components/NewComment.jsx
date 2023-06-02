@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchUsers, postComment } from "../api";
 
-const NewComment = ({ id, setCommentsArr }) => {
+const NewComment = ({ id, setCommentsArr, setCommentError }) => {
   const [formValues, setFormValues] = useState({
     username: "",
     commentBody: "",
@@ -9,7 +9,7 @@ const NewComment = ({ id, setCommentsArr }) => {
 
   const [usersArr, setUsersArr] = useState([]);
   const [feedbackMessage, setFeedbackMessage] = useState({
-    posted: 0,
+    posted: -1,
     message: "",
   });
   const [formDisabler, setFormDisabler] = useState(false);
@@ -47,6 +47,7 @@ const NewComment = ({ id, setCommentsArr }) => {
   const submitForm = (event) => {
     event.preventDefault();
     setFormDisabler(true);
+    setCommentError([]);
 
     if (formValues.username !== "" && /^.{3,}$/i.test(formValues.commentBody)) {
       postComment(id, formValues.username, formValues.commentBody)
@@ -67,18 +68,22 @@ const NewComment = ({ id, setCommentsArr }) => {
         })
         .catch((err) => {
           console.log(err);
-          setCommentsArr((currComments) => {
-            return [
-              {
-                author: "ERROR",
-                body: "FAILED TO POST NEW COMMENT. PLEASE REFRESH AND TRY AGAIN.",
-              },
-              ...currComments,
-            ];
-          });
+          setCommentError([
+            {
+              errorTitle: "ERROR",
+              errorMessage:
+                "ERROR POSTING COMMENT. PLEASE CHECK YOUR INTERNET CONNECTION OR REFRESH AND TRY AGAIN.",
+            },
+          ]);
           setFeedbackMessage({ posted: 0, message: "Error posting comment." });
           setFormDisabler(false);
         });
+    } else {
+      setFeedbackMessage({
+        posted: 0,
+        message: "Comment has to be 3 characters or longer.",
+      });
+      setFormDisabler(false);
     }
   };
 
@@ -96,12 +101,12 @@ const NewComment = ({ id, setCommentsArr }) => {
         })}
       </select>
       <label htmlFor="commentBody">Comment: </label>
-      <input
+      <textarea
         id="commentBody"
         placeholder="Write comment here..."
         value={formValues.commentBody}
         onChange={handleChange}
-      ></input>
+      ></textarea>
       <button id="submitButton" disabled={formDisabler}>
         Submit Comment
       </button>
