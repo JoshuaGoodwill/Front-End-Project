@@ -73,7 +73,14 @@ input {
 
 #reviewsTitle {
   font-size: 2.2em;
+  grid-area: reviewsTitle;
 }
+
+#categoryTitle {
+  font-size: 2.2em;
+  grid-area: categoryTitle;
+}
+
 .individualReviewTitle {
   font-size: 1.5em;
 }
@@ -85,19 +92,24 @@ input {
   align-content: center;
 }
 .reviewsListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgb(97, 97, 97);
   border: solid 5px rgb(42, 126, 119);
   border-radius: 5%;
   padding: 10px;
   list-style: none;
-  width: 40%;
+  width: 60%;
   margin-bottom: 20px;
 }
 
 .reviewLink {
+  margin-top: 5px;
   border: solid 2px;
   padding: 5px;
   background-color: lightblue;
+  width: 75%;
 }
 
 #individualReview {
@@ -239,4 +251,35 @@ form {
   background-color: lightblue;
   color: darkblue;
   margin-left: 5px;
+}
+
+#reviewsContainer {
+  display: grid;
+  grid-template-areas: "categoryTitle reviewsTitle" "nav reviews";
+  grid-template-columns: 25%75%;
+}
+
+#categoryNavbar {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  grid-area: nav;
+  height: fit-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
+}
+.categoryLink {
+  background-color: lightblue;
+  color: darkblue;
+  border: solid 3px darkblue;
+  width: 80%;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+#reviewsList {
+  grid-area: reviews;
 }

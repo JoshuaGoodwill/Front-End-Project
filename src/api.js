@@ -37,6 +37,11 @@ const fetchComments = (id) => {
     });
 };
 
+const fetchCategories = () => {
+  return games.get("/categories").then((response) => {
+    return response.data;
+  });
+};
 
 const fetchUsers = () => {
   return games
@@ -68,4 +73,5 @@ const patchVote = (id, amount) => {
     });
 };
 
-export { fetchReviews, fetchIndividualReview, fetchComments, postComment, patchVote, fetchUsers };
+export { fetchReviews, fetchIndividualReview, fetchComments, postComment, patchVote, fetchUsers, fetchCategories };
+
