@@ -37,4 +37,12 @@ const fetchComments = (id) => {
     });
 };
 
-export { fetchReviews, fetchIndividualReview, fetchComments };
+const patchVote = (id, amount) => {
+  return games
+    .patch(`/reviews/${id}`, { inc_votes: amount })
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export { fetchReviews, fetchIndividualReview, fetchComments, patchVote };
