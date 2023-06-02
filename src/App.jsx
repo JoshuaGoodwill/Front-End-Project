@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar.jsx";
 import ReviewsPage from "./components/ReviewsPage";
 import IndividualReviewPage from "./components/ReviewPage";
 import { useEffect, useState } from "react";
-import { fetchCategories } from "./utils";
+import { fetchCategories } from "./api";
 
 function App() {
   const [categoriesArr, setCategoriesArr] = useState([]);

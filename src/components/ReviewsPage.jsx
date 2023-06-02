@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchReviews } from "../utils";
+import { fetchReviews } from "../api";
 import ReviewsList from "./ReviewsList";
 import { NavLink, useParams } from "react-router-dom";
 
