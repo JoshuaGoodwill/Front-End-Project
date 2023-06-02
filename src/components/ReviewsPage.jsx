@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { fetchReviews } from "../utils";
 import ReviewsList from "./ReviewsList";
+import { NavLink, useParams } from "react-router-dom";
 
-const ReviewsPage = () => {
+const ReviewsPage = ({ categoriesArr }) => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { category } = useParams();
 
   useEffect(() => {
     fetchReviews()
@@ -24,8 +26,27 @@ const ReviewsPage = () => {
   } else {
     return (
       <section id="reviews">
-        <h2 id="reviewsTitle">Reviews</h2>
-        <ReviewsList reviews={reviews} />
+        <div id="reviewsContainer">
+          <h2 id="reviewsTitle">Reviews</h2>
+          <h2 id="categoryTitle">By Category</h2>
+          <nav id="categoryNavbar">
+            <NavLink className="categoryLink" to="/reviews">
+              All
+            </NavLink>
+            {categoriesArr.map((category) => {
+              return (
+                <NavLink
+                  className="categoryLink"
+                  key={category.slug}
+                  to={`/reviews_by_category/${category.slug}`}
+                >
+                  {category.slug}
+                </NavLink>
+              );
+            })}
+          </nav>
+          <ReviewsList id="reviewsList" reviews={reviews} category={category} />
+        </div>
       </section>
     );
   }

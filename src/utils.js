@@ -45,4 +45,16 @@ const patchVote = (id, amount) => {
     });
 };
 
-export { fetchReviews, fetchIndividualReview, fetchComments, patchVote };
+const fetchCategories = () => {
+  return games.get("/categories").then((response) => {
+    return response.data;
+  });
+};
+
+export {
+  fetchReviews,
+  fetchIndividualReview,
+  fetchComments,
+  patchVote,
+  fetchCategories,
+};
